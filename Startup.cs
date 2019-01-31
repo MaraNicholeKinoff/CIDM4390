@@ -36,7 +36,7 @@ namespace Assignment2
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<AppDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
+                options.UseSqlite("Data Source=AppDbContext.db"));       
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
