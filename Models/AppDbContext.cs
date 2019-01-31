@@ -12,7 +12,12 @@ using Assignment2.Models;
         {
         }
 
-        public DbSet<Assignment2.Models.Member> Member { get; set; }
+        public DbSet<Member> Member { get; set; }
+        public DbSet<Client> Client { get; set; }
 
-        public DbSet<Assignment2.Models.Client> Client { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Member>().ToTable("Member");
+            modelBuilder.Entity<Client>().ToTable("Client");
+        }
     }
